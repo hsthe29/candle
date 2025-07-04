@@ -12,7 +12,7 @@ readme = "README.md"
 
 [dependencies]
 candle = { path = "../candle-core", features = ["cuda"], package = "candle-core", version = "0.9.1" }
-half = { version = "2.3.1", features = ["num-traits"] }
+half = { version = "2.5.0", features = ["num-traits"] }
 
 [build-dependencies]
 bindgen_cuda = "0.1.1"
