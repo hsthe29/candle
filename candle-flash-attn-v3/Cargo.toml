@@ -11,7 +11,6 @@ readme = "README.md"
 authors = ["Michael Feil"]
 repository = "https://github.com/michaelfeil/candle-flash-attn-v3"
 exclude = ["cutlass/docs/**", "cutlass/test/**", "cutlass/examples/**", "cutlass/tools/**", "cutlass/media/**"]
-exclude = ["cutlass/docs/**", "cutlass/test/**", "cutlass/examples/**", "cutlass/tools/**", "cutlass/media/**"]
 
 [dependencies]
 candle = { path = "../candle-core", features = ["cuda"], package = "candle-core", version = "0.9.1" }
