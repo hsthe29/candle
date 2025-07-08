@@ -1,14 +1,16 @@
 [package]
 name = "candle-flash-attn-v3"
-version.workspace = true
-edition.workspace = true
-description.workspace = true
-repository.workspace = true
-keywords.workspace = true
-categories.workspace = true
-license.workspace = true
-readme = "README.md"
+version = "0.9.1"
+edition = "2021"
 
+description = "Flash attention V3 layer for the candle ML framework."
+keywords = ["blas", "tensor", "machine-learning"]
+categories = ["science"]
+license = "MIT OR Apache-2.0"
+readme = "README.md"
+authors = ["Michael Feil"]
+repository = "https://github.com/michaelfeil/candle-flash-attn-v3"
+exclude = ["cutlass/docs/**", "cutlass/test/**", "cutlass/examples/**", "cutlass/tools/**", "cutlass/media/**"]
 exclude = ["cutlass/docs/**", "cutlass/test/**", "cutlass/examples/**", "cutlass/tools/**", "cutlass/media/**"]
 
 [dependencies]
