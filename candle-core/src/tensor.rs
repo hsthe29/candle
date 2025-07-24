@@ -1509,7 +1509,7 @@ impl Tensor {
         crate::bail!("Not supported platform!");
 
         #[cfg(feature = "cuda")]
-        let dev = self.device().as_cuda_device()?;
+        let dev_stream = self.device().as_cuda_device()?.cuda_stream();
         #[cfg(feature = "cuda")]
         match *self.storage_mut() {
             Storage::Cuda(ref mut storage) => {
@@ -1517,23 +1517,23 @@ impl Tensor {
                 match &mut storage.slice {
                     CudaStorageSlice::U32(dst) => {
                         let mut dst = dst.slice_mut(..);
-                        dev.memset_zeros(&mut dst).map_err(crate::Error::wrap)
+                        dev_stream.memset_zeros(&mut dst).map_err(crate::Error::wrap)
                     }
                     CudaStorageSlice::I64(dst) => {
                         let mut dst = dst.slice_mut(..);
-                        dev.memset_zeros(&mut dst).map_err(crate::Error::wrap)
+                        dev_stream.memset_zeros(&mut dst).map_err(crate::Error::wrap)
                     }
                     CudaStorageSlice::F32(dst) => {
                         let mut dst = dst.slice_mut(..);
-                        dev.memset_zeros(&mut dst).map_err(crate::Error::wrap)
+                        dev_stream.memset_zeros(&mut dst).map_err(crate::Error::wrap)
                     }
                     CudaStorageSlice::F16(dst) => {
                         let mut dst = dst.slice_mut(..);
-                        dev.memset_zeros(&mut dst).map_err(crate::Error::wrap)
+                        dev_stream.memset_zeros(&mut dst).map_err(crate::Error::wrap)
                     }
                     CudaStorageSlice::BF16(dst) => {
                         let mut dst = dst.slice_mut(..);
-                        dev.memset_zeros(&mut dst).map_err(crate::Error::wrap)
+                        dev_stream.memset_zeros(&mut dst).map_err(crate::Error::wrap)
                     }
                     _ => crate::bail!("Not supported dtype!"),
                 }
